@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to My Travel Portal</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="msg" align="right">MSG</div>
+<div class="w3-display-container">
+  <img id="pageImg" src="https://www.w3schools.com/w3images/mountains2.jpg" style="width:100%; height: 400px">
+  <div class="w3-display-bottomleft w3-container w3-amber w3-hover-orange w3-hide-small"
+   style="bottom:10%;opacity:0.7;width:70%">
+    <h2><b>Discover The World With Us</b></h2>
+  </div>
+</div>
+<div class="tab">
+  <button class="tablinks" onmouseover="openTab(event, 'Home')">Home</button>
+  <button class="tablinks" onmouseover="openTab(event, 'About','https://www.w3schools.com/w3images/ocean2.jpg')">About Us</button>
+  <button class="tablinks" onmouseover="openTab(event, 'Contact','https://www.w3schools.com/w3images/london2.jpg')">Contact Us</button>
+</div>
+
+<div id="Home" class="tabcontent">
+  <h2>Discover Your Next Adventure</h2>
+  <p>
+Embark on unforgettable journeys to destinations that inspire, excite, and transform.
+Whether you're dreaming of sun-soaked beaches, snow-capped mountains, or vibrant city streets, your perfect getaway starts here.</p>
+</div>
+
+<div id="About" class="tabcontent">
+  <div class="container">
+        <section class="section">
+            <h2>Our Story</h2>
+            <p>At Travel Adventures, we've been turning travel dreams into reality since 2010. What started as a small team of passionate travelers has grown into a trusted global travel platform, serving millions of adventurers worldwide while maintaining our commitment to personalized service and authentic experiences.</p>
+        </section>
+
+        <section class="section">
+            <h2>Our Mission</h2>
+            <p>To create seamless, memorable travel experiences that inspire, connect, and enrich lives. We believe that travel has the power to transform perspectives, bridge cultures, and create lasting memories that shape who we are.</p>
+        </section>
+
+        <section class="section">
+            <h2>What Sets Us Apart</h2>
+            <div class="feature-box">
+                <h3>🤝 Personal Touch</h3>
+                <p>Unlike large impersonal booking sites, we provide customized attention to each traveler. Our expert travel consultants are real people with real travel experience, available 24/7 to assist you.</p>
+            </div>
+            <div class="feature-box">
+                <h3>💯 Quality Assurance</h3>
+                <p>We personally verify our partners and destinations, ensuring that every hotel, tour, and experience meets our rigorous quality standards.</p>
+            </div>
+            <div class="feature-box">
+                <h3>💰 Value for Money</h3>
+                <p>We negotiate the best rates with our partners and maintain transparent pricing with no hidden fees.</p>
+            </div>
+            <div class="feature-box">
+                <h3>🌍 Sustainable Travel</h3>
+                <p>We're committed to responsible tourism, partnering with eco-friendly accommodations and supporting local communities.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Our Services</h2>
+            <ul>
+                <li>Customized Travel Planning</li>
+                <li>International & Domestic Flights</li>
+                <li>Luxury & Boutique Hotels</li>
+                <li>Adventure Tours & Expeditions</li>
+                <li>Cultural Immersion Programs</li>
+                <li>Corporate Travel Solutions</li>
+                <li>Group Travel Management</li>
+                <li>Destination Weddings</li>
+                <li>Travel Insurance</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Awards & Recognition</h2>
+            <div class="awards">
+                <div class="award-item">
+                    <h4>🏆 Best Online Travel Platform 2023</h4>
+                    <p>Travel Weekly</p>
+                </div>
+                <div class="award-item">
+                    <h4>🏆 Excellence in Customer Service</h4>
+                    <p>Tourism Awards 2022</p>
+                </div>
+                <div class="award-item">
+                    <h4>🏆 Sustainable Tourism Initiative</h4>
+                    <p>Green Travel Awards 2023</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Industry Partners</h2>
+            <ul>
+                <li>IATA Accredited Agency</li>
+                <li>Member of World Travel & Tourism Council</li>
+                <li>Partner of Sustainable Travel International</li>
+                <li>Certified by International Air Transport Association</li>
+            </ul>
+        </section>
+    
+  </div>
+</div>
+<div id="Contact" class="tabcontent">
+  <h2>Contact Us</h2>
+  <form>
+      <p>Make a difference, let us know how can we help.</p>
+      Email <input id="email" name="txtEmail" size="40" onchange="verifyEmail()" >
+      <span id="errorMsg" style="color:red"></span>
+      
+  </form>
+  <div class="contact-info">
+                <p>📞 24/7 Customer Service: 1-800-TRAVEL</p>
+                <p>📧 Email: support@traveladventures.com</p>
+                <p>🌐 Live Chat: Available on our website</p>
+                <p>📱 Mobile App: Download on iOS and Android</p>
+  </div>
+</div>
+<div class="clearfix"></div>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector("#msg").textContent = getGreeting()+", your Local Time: " + new Date().toLocaleTimeString();
+  openTab(event, 'Home');
+});
+       
+function getGreeting() {
+    const hour = new Date().getHours();
+    return hour < 12 ? "Good Morning" : "Good Evening";
+}
+
+function openTab(evt, tabName, imgSrc = null) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+
+  if (imgSrc === null)
+    document.querySelector("#pageImg").src = "https://www.w3schools.com/w3images/mountains2.jpg";
+  else  
+    document.querySelector("#pageImg").src = imgSrc;
+  }
+
+  function verifyEmail(){
+    if (!validateEmailFormat(document.getElementById("email").value))
+      document.querySelector("#errorMsg").innerText = "Invalid email"
+    else
+      document.querySelector("#errorMsg").innerText = "";
+  }
+
+  function validateEmailFormat(email) {
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  return emailRegex.test(email);
+}
+</script>
+
+</body>
+</html>
